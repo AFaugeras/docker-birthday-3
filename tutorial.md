@@ -435,7 +435,7 @@ FROM alpine:latest
 The next step usually is to write the commands of copying the files and installing the dependencies.
 But first we will install the Python pip package to the alpine linux distribution. This will not just install the pip package but any other dependencies too, which includes the python interpreter. Add the following [RUN](https://docs.docker.com/engine/reference/builder/#run) command next:
 ```
-RUN apk add --update py-pip
+RUN apk add --update py2-pip
 ```
 
 Next, let us add the files that make up the Flask Application.
@@ -473,7 +473,7 @@ The primary purpose of `CMD` is to tell the container which command it should ru
 FROM alpine:latest
 
 # Install python and pip
-RUN apk add --update py-pip
+RUN apk add --update py2-pip
 
 # install Python modules needed by the Python app
 COPY requirements.txt /usr/src/app/
@@ -499,7 +499,7 @@ $ docker build -t <YOUR_USERNAME>/myfirstapp .
 Sending build context to Docker daemon 9.728 kB
 Step 1 : FROM alpine:latest
  ---> 0d81fc72e790
-Step 2 : RUN apk add --update py-pip
+Step 2 : RUN apk add --update py2-pip
  ---> Running in 8abd4091b5f5
 fetch http://dl-4.alpinelinux.org/alpine/v3.3/main/x86_64/APKINDEX.tar.gz
 fetch http://dl-4.alpinelinux.org/alpine/v3.3/community/x86_64/APKINDEX.tar.gz
@@ -514,7 +514,7 @@ fetch http://dl-4.alpinelinux.org/alpine/v3.3/community/x86_64/APKINDEX.tar.gz
 (9/12) Installing sqlite-libs (3.9.2-r0)
 (10/12) Installing python (2.7.11-r3)
 (11/12) Installing py-setuptools (18.8-r0)
-(12/12) Installing py-pip (7.1.2-r0)
+(12/12) Installing py2-pip (7.1.2-r0)
 Executing busybox-1.24.1-r7.trigger
 OK: 59 MiB in 23 packages
  ---> 976a232ac4ad
@@ -560,7 +560,7 @@ Removing intermediate container 78e324d26576
 Successfully built 2f7357a0805d
 ```
 > Note, the Alpine Linux CDN has been experiencing some trouble recently. If you encounter an error building this image, there's a workaround as outlined in [issue #104](https://github.com/docker/docker-birthday-3/issues/104). This is also reflected currently in the repo for the [Flask app](https://github.com/docker/docker-birthday-3/tree/master/flask-app)
- 
+
 If you don't have the `alpine:latest` image, the client will first pull the image and then create your image. Therefore, your output on running the command will look different from mine. If everything went well, your image should be ready! Run `docker images` and see if your image (`<YOUR_USERNAME>/myfirstapp`) shows.
 
 The last step in this section is to run the image and see if it actually works.
@@ -868,5 +868,4 @@ Invite your friends to complete this [Docker Birthday Training] (https://github.
 ## References
 - [What is docker](https://www.docker.com/what-docker)
 - [Docker Compose](https://docs.docker.com/compose)
-- [Prakhar Srivastav's Blog](http://prakhar.me) 
-
+- [Prakhar Srivastav's Blog](http://prakhar.me)

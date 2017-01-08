@@ -602,10 +602,10 @@ You now know how to build your own Docker image, so let's take it to the next le
 
 Start by quickly reading the documentation available [here](https://docs.docker.com/compose/overview/).
 
-Clone the voting-app repository already available at [Github Repo](https://github.com/docker/docker-birthday-3.git).
+Clone the voting-app repository already available at [Github Repo](https://github.com/ebriand/docker-birthday-3.git).
 
 ```
-git clone https://github.com/docker/docker-birthday-3.git
+git clone https://github.com/ebriand/docker-birthday-3.git
 ```
 
 <a id="customize"></a>
